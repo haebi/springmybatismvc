@@ -1,0 +1,15 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+    </settings>
+    
+    <typeAliases>
+		<typeAlias alias="TestModel" 		type="com.haebi.web.model.TestModel"/>
+	<!-- Add typeAlias ...  -->
+    <!-- <typeAlias alias="TestModel" 		type="com.haebi.web.model.TestModel"/> -->
+	</typeAliases>
+</configuration>
