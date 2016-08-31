@@ -2,6 +2,7 @@ package com.haebi.web.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 // log
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class TestService {
 	@Autowired
 	private TestDao testDao;
 
-	// web
+	// web - sample with Model Class
 	public List<TestModel> getEmpDetail(){
 		
 		List<TestModel> model = new ArrayList<TestModel>();
@@ -38,6 +39,21 @@ public class TestService {
 		try {
 			
 			model = testDao.getEmpList();
+			
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return model;
+	}
+	
+	// web - sample without Model Class (Using Java.util.Map as Model)
+	public List<Map<String, String>> getFruitList(){
+		
+		List<Map<String, String>> model = new ArrayList<Map<String, String>>();
+				
+		try {
+			
+			model = testDao.getFruitList();
 			
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -57,7 +73,7 @@ public class TestService {
 			JsonElement strToJsonObj = gson.fromJson(resultStr, JsonElement.class);
 			
 			// List<> -> String #2
-			String resultStr2 = gson.toJson(testDao.getEmpList());
+			String resultStr2 = gson.toJson(testDao.getFruitList());
 			// string -> JsonObject #2
 			JsonElement strToJsonObj2 = gson.fromJson(resultStr2, JsonElement.class);
 			

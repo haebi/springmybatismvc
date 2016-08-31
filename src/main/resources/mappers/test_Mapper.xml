@@ -9,5 +9,11 @@
 		     , addr 
 		from TEST
 	</select>
+	<select id="getFruitList" resultType="java.util.Map">
+		select name
+		     , color
+		     , size
+		from FRUIT
+	</select>
 </mapper>
 

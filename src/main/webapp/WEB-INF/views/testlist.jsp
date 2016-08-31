@@ -23,8 +23,8 @@
 		<ul>
 			<c:forEach var="listValue" items="${list2}">
 				<li>${listValue.name}</li>
-				<li>${listValue.tel}</li>
-				<li>${listValue.addr}</li>
+				<li>${listValue.color}</li>
+				<li>${listValue.size}</li>
 			</c:forEach>
 		</ul>
 	</c:if>

@@ -47,7 +47,7 @@ public class TestController {
 		
 		// Call services
 		mav.addObject("list", testService.getEmpDetail());
-		mav.addObject("list2", testService.getEmpDetail());
+		mav.addObject("list2", testService.getFruitList());
 		// ... if you need more
 		
 		mav.setViewName("testlist");
