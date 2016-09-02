@@ -15,5 +15,13 @@
 		     , size
 		from FRUIT
 	</select>
+	<insert id="addUser" parameterType="TestModel">
+		insert into TEST (name
+						, tel
+						, addr)
+				values (#{name}
+						,#{tel}
+						,#{addr})
+	</insert>
 </mapper>
 

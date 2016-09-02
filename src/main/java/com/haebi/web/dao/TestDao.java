@@ -26,4 +26,9 @@ public class TestDao {
 		return sqlSession.selectList("TEST.getFruitList");
 	}
 	
+	// sample insert from WEB (POST)
+	public int addUserInfo(TestModel param) throws SQLException{
+		return sqlSession.insert("TEST.addUser", param);
+	}
+	
 }

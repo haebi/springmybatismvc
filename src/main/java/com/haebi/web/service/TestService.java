@@ -60,6 +60,20 @@ public class TestService {
 		}
 		return model;
 	}
+	
+	// web - Add User Information
+	public List<Map<String, String>> addUserInfo(TestModel param){
+							
+		try {
+			
+				testDao.addUserInfo(param);
+			
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		
+		return null;
+	}
 
 	// json
 	public JsonObject getEmpDetailJson(){

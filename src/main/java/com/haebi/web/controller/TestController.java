@@ -1,5 +1,7 @@
 package com.haebi.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-
+import com.haebi.web.model.TestModel;
 import com.haebi.web.service.TestService;
 
 
@@ -23,8 +25,8 @@ public class TestController {
 	static Gson gson = new Gson();
 	
 	@RequestMapping(value = "/web", method = RequestMethod.GET)
-	public ModelAndView testPage()
-	{
+	public ModelAndView testPage(){
+		
 		ModelAndView mav = new ModelAndView();
 		
 		String message = "This sample message from controller~!!";
@@ -41,8 +43,8 @@ public class TestController {
 	}
 	
 	@RequestMapping(value = "/weblist", method = RequestMethod.GET)
-	public ModelAndView testPageList()
-	{
+	public ModelAndView testPageList(){
+		
 		ModelAndView mav = new ModelAndView();
 		
 		// Call services
@@ -55,10 +57,27 @@ public class TestController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/weblist/add", method = RequestMethod.POST)
+	public String testPageAdd(HttpServletRequest request){
+		
+		String name	= request.getParameter("name");
+		String tel	= request.getParameter("tel");
+		String addr	= request.getParameter("addr");
+		
+		TestModel param = new TestModel();
+		param.setName(name);
+		param.setTel(tel);
+		param.setAddr(addr);
+		
+		testService.addUserInfo(param);
+		
+		return "redirect:/test/weblist";
+	}
+	
     @ResponseBody
     @RequestMapping(value = "/json", method = RequestMethod.GET)
-    public JsonObject testJson()
-    {
+    public JsonObject testJson(){
+    	
     	JsonObject resultObj = new JsonObject();
     	
     	resultObj.addProperty("groupId", "GROUP_ID");
@@ -70,8 +89,7 @@ public class TestController {
     
     @ResponseBody
     @RequestMapping(value = "/jsonlist", method = RequestMethod.GET)
-    public JsonObject testJsonList()
-    {
+    public JsonObject testJsonList(){
     	return testService.getEmpDetailJson();
     }
 

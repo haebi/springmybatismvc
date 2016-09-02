@@ -8,6 +8,29 @@
 </head>
 <body>
 	<p>This is a test page~!!</p>
+
+	<form action="weblist/add" method="post">
+		<table>
+			<tr>
+				<td colspan="2" align="center">*** Add Data Form ***</td>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<th>Tel</th>
+				<td><input type="text" name="tel" /></td>
+			</tr>
+			<tr>
+				<th>Addr</th>
+				<td><input type="text" name="addr" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><input type="submit" value="Add" /></td>
+			</tr>
+		</table>
+	</form>
 	
 	<c:if test="${not empty list}">
 		<ul>
